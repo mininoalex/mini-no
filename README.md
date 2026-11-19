@@ -8,4 +8,6 @@ Con Node 24, ejecutá `npm test`. Con pnpm, ejecutá `pnpm install`, luego `pnpm
 
 ## Estado
 
-Implementados: selección del formato de sesión, explicación reproducible y pantalla Expo. Planeados: catálogo de 60–80 ejercicios revisados, registro opcional por serie, calendario flexible y sincronización. Primer hito de producto: 10 personas durante cuatro semanas. Ver [arquitectura](docs/ARQUITECTURA.md).
+Implementados: check-in de tiempo, energía y motivo de ausencia; adaptación reproducible de la sesión; explicación de cada cambio y pantalla Expo accesible. Planeados: catálogo de 60–80 ejercicios revisados, registro opcional por serie, calendario flexible y sincronización. Primer hito de producto: 10 personas durante cuatro semanas. Ver [arquitectura](docs/ARQUITECTURA.md).
+
+Cada cambio en `main` ejecuta pruebas del motor, chequeo de TypeScript y compilación web en GitHub Actions.

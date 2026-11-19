@@ -1,0 +1,36 @@
+name: Verificar MINI-NO
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Preparar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.20.0
+
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Instalar dependencias
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Probar el motor
+        run: pnpm test
+
+      - name: Revisar TypeScript
+        run: pnpm typecheck
+
+      - name: Compilar la web
+        run: pnpm --filter @mi/app build

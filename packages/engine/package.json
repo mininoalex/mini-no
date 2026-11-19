@@ -1,1 +1,9 @@
-{"name":"@mi/engine","private":true,"type":"module","exports":"./index.ts"}
+{
+  "name": "@mi/engine",
+  "private": true,
+  "type": "module",
+  "exports": "./index.ts",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

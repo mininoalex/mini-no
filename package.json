@@ -1,8 +1,14 @@
 {
   "name": "mi",
   "private": true,
+  "packageManager": "pnpm@10.20.0",
   "type": "module",
   "scripts": {
-    "test": "node --test packages/engine/*.test.mjs"
+    "test": "node --test packages/engine/*.test.mjs",
+    "typecheck": "pnpm --recursive typecheck"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
   }
 }
