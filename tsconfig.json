@@ -3,6 +3,7 @@
   "references": [
     { "path": "apps/app" },
     { "path": "packages/engine" },
+    { "path": "packages/exercises" },
     { "path": "packages/ui" }
   ]
 }

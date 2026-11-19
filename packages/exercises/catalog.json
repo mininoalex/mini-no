@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "id": "chair-sit-to-stand",
+    "name": "Sentarse y pararse de una silla",
+    "pattern": "knee_dominant",
+    "equipment": ["chair"],
+    "level": 1,
+    "progressionChain": "squat",
+    "progressionOrder": 1,
+    "avoidWhen": ["knee_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "bodyweight-squat",
+    "name": "Sentadilla con peso corporal",
+    "pattern": "knee_dominant",
+    "equipment": ["none"],
+    "level": 2,
+    "progressionChain": "squat",
+    "progressionOrder": 2,
+    "avoidWhen": ["knee_discomfort", "needs_balance_support"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "hip-hinge-wall",
+    "name": "Bisagra de cadera hacia la pared",
+    "pattern": "hip_dominant",
+    "equipment": ["wall"],
+    "level": 1,
+    "progressionChain": "hinge",
+    "progressionOrder": 1,
+    "avoidWhen": ["back_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "glute-bridge",
+    "name": "Puente de glúteos",
+    "pattern": "hip_dominant",
+    "equipment": ["mat"],
+    "level": 1,
+    "progressionChain": "bridge",
+    "progressionOrder": 1,
+    "avoidWhen": ["back_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "wall-push-up",
+    "name": "Flexión contra la pared",
+    "pattern": "horizontal_push",
+    "equipment": ["wall"],
+    "level": 1,
+    "progressionChain": "push-up",
+    "progressionOrder": 1,
+    "avoidWhen": ["shoulder_discomfort", "wrist_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "incline-push-up",
+    "name": "Flexión inclinada",
+    "pattern": "horizontal_push",
+    "equipment": ["chair"],
+    "level": 2,
+    "progressionChain": "push-up",
+    "progressionOrder": 2,
+    "avoidWhen": ["shoulder_discomfort", "wrist_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "backpack-row",
+    "name": "Remo con mochila",
+    "pattern": "horizontal_pull",
+    "equipment": ["backpack"],
+    "level": 1,
+    "progressionChain": "row",
+    "progressionOrder": 1,
+    "avoidWhen": ["shoulder_discomfort", "back_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "band-row",
+    "name": "Remo con banda elástica",
+    "pattern": "horizontal_pull",
+    "equipment": ["band"],
+    "level": 1,
+    "progressionChain": "row",
+    "progressionOrder": 1,
+    "avoidWhen": ["shoulder_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "dead-bug",
+    "name": "Dead bug",
+    "pattern": "core",
+    "equipment": ["mat"],
+    "level": 1,
+    "progressionChain": "core-control",
+    "progressionOrder": 1,
+    "avoidWhen": ["back_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "bird-dog",
+    "name": "Bird dog",
+    "pattern": "core",
+    "equipment": ["mat"],
+    "level": 2,
+    "progressionChain": "core-control",
+    "progressionOrder": 2,
+    "avoidWhen": ["back_discomfort", "wrist_discomfort"],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "supported-calf-raise",
+    "name": "Elevación de talones con apoyo",
+    "pattern": "calf",
+    "equipment": ["wall"],
+    "level": 1,
+    "progressionChain": "calf-raise",
+    "progressionOrder": 1,
+    "avoidWhen": [],
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "dumbbell-row",
+    "name": "Remo con mancuerna y apoyo",
+    "pattern": "horizontal_pull",
+    "equipment": ["dumbbells", "chair"],
+    "level": 2,
+    "progressionChain": "row",
+    "progressionOrder": 2,
+    "avoidWhen": ["shoulder_discomfort", "back_discomfort"],
+    "reviewStatus": "draft"
+  }
+]

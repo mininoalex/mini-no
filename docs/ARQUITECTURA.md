@@ -15,6 +15,10 @@
 3. La sesión y su evento de sincronización se guardarán en una transacción local SQLite. Cada evento tendrá un identificador estable y el usuario propietario. El servidor confirmará por identificador para permitir reintentos sin duplicar series. Los conflictos de edición requerirán versión de origen y conciliación explícita.
 4. El tablero priorizará energía, constancia semanal y fuerza. Las fotos permanecerán en el dispositivo y quedarán excluidas de la cola.
 
+## Estado del catálogo
+
+La base inicial contiene ejercicios en estado `draft` para probar selección por tiempo, nivel, equipamiento y limitaciones. El modo normal del motor excluye esos borradores. La interfaz los habilita temporalmente y muestra una advertencia visible durante el desarrollo. Ningún ejercicio pasa a `reviewed` sin revisión profesional.
+
 ## Tandas siguientes
 
 Primero validar empaquetado Android y web. Después incorporar y revisar una cadena de ejercicios de extremo a extremo; verificar filtros y margen inicial de esfuerzo. Luego probar persistencia sin conexión, cambio de cuenta y reintentos. Abrir el piloto tras probar consentimiento, exportación, borrado y aislamiento entre dos usuarios.

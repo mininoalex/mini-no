@@ -1,0 +1,11 @@
+{
+  "name": "@mi/exercises",
+  "private": true,
+  "exports": "./index.ts",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@mi/engine": "workspace:*"
+  }
+}

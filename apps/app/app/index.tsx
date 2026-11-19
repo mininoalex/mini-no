@@ -3,12 +3,16 @@ import { ScrollView, StyleSheet, Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import {
   recommendSession,
+  generateSession,
   type AvailableMinutes,
+  type Equipment,
   type EnergyLevel,
   type MissedReason,
 } from "@mi/engine"
+import { exerciseCatalog } from "@mi/exercises"
 import { colors } from "@mi/ui"
 import { ChoiceButton } from "../components/ChoiceButton"
+import { SessionPreview } from "../components/SessionPreview"
 
 const TIME_OPTIONS: AvailableMinutes[] = [15, 30, 45]
 const ENERGY_OPTIONS: { value: EnergyLevel; label: string }[] = [
@@ -23,12 +27,33 @@ const MISSED_OPTIONS: { value: MissedReason; label: string }[] = [
   { value: "pain", label: "Tuve una molestia" },
   { value: "other", label: "Otro motivo" },
 ]
+const EQUIPMENT_OPTIONS: { value: Equipment; label: string }[] = [
+  { value: "chair", label: "Silla" },
+  { value: "wall", label: "Pared" },
+  { value: "mat", label: "Colchoneta" },
+  { value: "backpack", label: "Mochila" },
+  { value: "band", label: "Banda" },
+  { value: "dumbbells", label: "Mancuernas" },
+]
 
 export default function CheckInScreen() {
   const [availableMinutes, setAvailableMinutes] = useState<AvailableMinutes>(15)
   const [energy, setEnergy] = useState<EnergyLevel>("medium")
   const [missedReason, setMissedReason] = useState<MissedReason>(null)
+  const [equipment, setEquipment] = useState<Equipment[]>([])
   const recommendation = recommendSession({ availableMinutes, energy, missedReason })
+  const generatedSession = generateSession(
+    recommendation,
+    { equipment, limitations: [], level: 1 },
+    exerciseCatalog,
+    true,
+  )
+
+  const toggleEquipment = (selected: Equipment) => {
+    setEquipment((current) => current.includes(selected)
+      ? current.filter((item) => item !== selected)
+      : [...current, selected])
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -80,6 +105,21 @@ export default function CheckInScreen() {
           </View>
         </Question>
 
+        <Question title="¿Qué tenés disponible?">
+          <Text style={styles.helper}>Podés elegir más de una opción. Entrenar sin equipo siempre está disponible.</Text>
+          <View style={styles.equipmentGrid}>
+            {EQUIPMENT_OPTIONS.map((option) => (
+              <View key={option.value} style={styles.equipmentChoice}>
+                <ChoiceButton
+                  label={option.label}
+                  selected={equipment.includes(option.value)}
+                  onPress={() => toggleEquipment(option.value)}
+                />
+              </View>
+            ))}
+          </View>
+        </Question>
+
         <View accessibilityLiveRegion="polite" style={styles.recommendation}>
           <Text style={styles.recommendationLabel}>Tu propuesta de hoy</Text>
           <Text style={styles.recommendationTitle}>{recommendation.title}</Text>
@@ -91,6 +131,8 @@ export default function CheckInScreen() {
             </Text>
           ) : null}
         </View>
+
+        <SessionPreview session={generatedSession} />
       </ScrollView>
     </SafeAreaView>
   )
@@ -123,6 +165,9 @@ const styles = StyleSheet.create({
   row: { flexDirection: "row", gap: 10 },
   flexChoice: { flex: 1 },
   stack: { gap: 10 },
+  helper: { color: "#5B526A", fontSize: 14, lineHeight: 20 },
+  equipmentGrid: { flexDirection: "row", flexWrap: "wrap", gap: 10 },
+  equipmentChoice: { minWidth: 140, flexGrow: 1 },
   recommendation: {
     backgroundColor: colors.white,
     borderColor: "#DED5F5",
